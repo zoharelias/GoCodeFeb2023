@@ -9,7 +9,7 @@ body {
 }
 
 .section-1 {
-    background: url("pexels-photo-248515.png");
+    background: url("pexels-photo-248515.jpg");
     /* background-size: 100%; */
     background-size: cover;
     background-repeat: no-repeat;
@@ -81,7 +81,7 @@ body {
 }
 
 .card {
-    margin-top: 40px;
+    margin: 40px 0;
     background-color: #eaeaea;
     color: #333;
     width: 270px;
@@ -91,6 +91,7 @@ body {
 .card > img {
     
     height: 180px;
+    width: 100%;
 }
 .card-title {
     font-size: 1.1em;
@@ -101,4 +102,101 @@ body {
     font-size: 1.1em;
     padding: 1.5em;
     line-height: 1.5;
+}
+
+
+.section-4 {
+    width: 100%;
+    background-color: #eaeaea;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.section4content {
+    width: 60%;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.section-4 > * {
+    padding: 1em 0;
+}
+
+
+.section-5 {
+    width: 100%;
+    /* background-color: #eaeaea; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.section5a {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+
+}
+
+.section5a-left ,
+.section5a-right
+{
+    padding: 2em;
+    width:50%;
+    font-size: 1.4em;
+    text-align: center;
+    height: 100%;
+    color: white;
+}
+.section5a-left {
+    background-color: #2690d4;
+}
+
+.section5a-left > p,
+.section5a-right > p {
+    padding: 1em 0;
+}
+
+
+
+.section-6 {
+    width: 100%;
+    background-color: black; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.section6a {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;;
+    width: 75%;
+}
+
+.section6ab {
+    text-align: center;
+    width:50%;
+    font-size: 1.2em;
+    color: #eaeaea;
+}
+
+a {
+    color: #2690d4;
+    text-decoration: none;
 }
