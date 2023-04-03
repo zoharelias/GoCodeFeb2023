@@ -15,11 +15,16 @@ button {
 
 .divs {
     border: solid 1px blue;
-    border-radius: 5%;
+    border-radius: 2%;
     display: flex;
     flex-direction: column;
 }
 
 .input3 {
     width:650px;
+}
+
+.image {
+    width: 300px;
+    height: 300px;
 }

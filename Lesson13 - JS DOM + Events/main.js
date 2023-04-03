@@ -58,11 +58,11 @@ btnToolbar6.addEventListener('click',function(){
 
 
 //excercise 1
-const input1 = document.querySelector('.input1');
-const button1 = document.querySelector('.button1');
+const input1js = document.querySelector('.input1');
+const button1js = document.querySelector('.button1');
 
-button1.addEventListener('click',function(){
-    alert(input1.value);
+button1js.addEventListener('click',function(){
+    alert(input1js.value);
 })
 
 //excercise 2
@@ -70,34 +70,30 @@ const x = document.querySelector('.x');
 const y = document.querySelector('.y');
 
 document.body.addEventListener('mousemove',function(event){
-     x.innerText = event.clientX
-     y.innerText = event.clientY
+     x.innerText = event.clientX;
+     y.innerText = event.clientY;
 })
 
 //excercise 3
-const input3 = document.querySelector('.input3');
-const button3 = document.querySelector('.button3');
-//input3.style.width = '900px';
+const input3js = document.querySelector('.input3');
+const button3js = document.querySelector('.button3');
 
-const myImg = document.createElement('img');
-myImg.style.width = '300px';
-myImg.style.height = '300px';
-myImg.src = input3.value;
+const myImg = document.querySelector('.image');
 
-button3.addEventListener('click', function(){
-    div3.appendChild(myImg);
+button3js.addEventListener('click', function(){
+    myImg.src = input3js.value;
 })
 
 
 //excercise 4
 
 const myList =  document.querySelector('.ul4');
-const button4 = document.querySelector('.button4');
+const button4js = document.querySelector('.button4');
 let listLength = 10;
 let listArray = [];
 myList.innerHTML='';
 drawList(listLength,myList);
-button4.addEventListener('click',function(){
+button4js.addEventListener('click',function(){
     myList.innerHTML = '';
     listArray = [];
     listLength -= 1;
