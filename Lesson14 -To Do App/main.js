@@ -7,32 +7,34 @@ const btnVieDoneTasks =  document.querySelector('.viewDone');
 const btnToggleMode =  document.querySelector('.darkMode');
 
 
-const x = btnViewAllTasks.offsetLeft;
-console.log('x=',x);
-
-btnViewAllTasks.style.visibility = 'hidden';
-btnVieDoneTasks.style.left = x;
-
 const tasks = [];
 const doneTasks = [];
+let colorMode ='dark';
 
-taskToAdd.focus();
+taskToAdd.focus(); //focus on the text input
 
-console.log(body.classList);
 tasksList.classList.add('dark');
-console.log(body.classList);
 
 btnToggleMode.addEventListener('click',function(){
-    console.log(body.classList);
+    if(colorMode === 'dark'){
+        colorMode = 'light';
+    } else {
+        colorMode = 'dark';
+    }
     tasksList.classList.toggle('dark');
     tasksList.classList.toggle('light');
-    console.log(body.classList);
+    const tasksDivs = document.querySelectorAll('.taskItem');
+    tasksDivs.forEach(function(taskDiv){
+        taskDiv.classList.toggle('taskItem-light');
+        taskDiv.classList.toggle('taskItem-dark');
+    });
 });
 
 btnViewAllTasks.addEventListener('click', refreshTaskList);
 btnVieDoneTasks.addEventListener('click', viewOnlyDone);
 
 
+//Enter key to add
 taskToAdd.addEventListener('keypress', function(event){
     if(event.key === 'Enter'){
         btnAddTask.click();
@@ -46,7 +48,6 @@ btnAddTask.addEventListener('click',function(){
     }
     tasks.push(taskToAdd.value);
     taskToAdd.value ='';
-    console.log('tasks',tasks,'doneTass:',doneTasks);
     refreshTaskList();
     taskToAdd.focus();
 });
@@ -59,7 +60,11 @@ function refreshTaskList(){
             const taskDiv = document.createElement('div');
             taskDiv.classList.add('taskNumber' + index);
             taskDiv.classList.add('taskItem');
-    
+            if(colorMode === 'dark'){
+                taskDiv.classList.add('taskItem-dark');
+            } else {
+                taskDiv.classList.add('taskItem-light');
+            }
             const btnRemoveTask = document.createElement('button');
             btnRemoveTask.innerText = 'Remove Task';
             btnRemoveTask.setAttribute('onclick', 'removeTask(' + index + ')');
@@ -73,21 +78,15 @@ function refreshTaskList(){
             btnMarkAsDone.innerText = 'Mark Task as DONE';
             btnMarkAsDone.setAttribute('onclick', 'markTaskAsDone(' + index + ')');
             btnMarkAsDone.classList.add('button-7');
-            
             divMarkAsDone.appendChild(btnMarkAsDone);
-            // btnMarkAsDone.classList.add('taskSubItem');
-            
-            //const textDiv = document.createElement('span');
+
             const textDiv = document.createElement('div');
             textDiv.classList.add('taskSubItem');
             textDiv.classList.add('taskText');
             textDiv.classList.add('taskText' + index);
             textDiv.innerText = myTask;
 
-            //taskDiv.innerText = myTask;
-            //console.log('taskDivindex',index);
             taskDiv.appendChild(btnRemoveTask);
-            //taskDiv.appendChild(btnMarkAsDone);
             taskDiv.appendChild(divMarkAsDone);
             taskDiv.appendChild(textDiv);
             tasksList.appendChild(taskDiv);
@@ -103,40 +102,27 @@ function refreshTaskList(){
 
 
 function removeTask(taskId){
-    console.log('REMOVE TASK, task id:', taskId);
-    console.log('tasks',tasks,'doneTass:',doneTasks);
-
-    //tasks.splice(taskId,1);
     delete tasks[taskId];
     doneTasks.forEach(function(doneTask,index){
-        //console.log('doneTask:',doneTask,'index:',index);
         if(doneTask === taskId){
             doneTasks.splice(index,1);
         }
     });
 
     refreshTaskList();
-
-
-    //setLineOnDoneTasks();
 }
 
 
 function markTaskAsDone(taskId){
     doneTasks.push(taskId);
     setLineOnDoneTasks();
-
-    // const myTaskClassName = '.taskNumber' + taskId;
-    // const taskToMark = document.querySelector(myTaskClassName);
-    // taskToMark.style.textDecoration = 'line-through';
 }
 
 
+//strike throuh line on leeters of done tasks
 function setLineOnDoneTasks(){
     doneTasks.forEach(function(doneTask){
-        //const myTaskClassName = '.taskNumber' + doneTask;
         const myTaskClassName = '.taskText' + doneTask;
-        //console.log('class name:',myTaskClassName);
         const taskToMark = document.querySelector(myTaskClassName);
         taskToMark.style.textDecoration = 'line-through';
     });
@@ -147,7 +133,13 @@ function viewOnlyDone(){
     doneTasks.forEach(function(doneTask){
         const taskDiv = document.createElement('div');
         taskDiv.classList.add('taskNumber' + doneTask);
-        taskDiv.innerText = tasks[doneTask];
+        taskDiv.classList.add('taskItem');
+        if(colorMode === 'dark'){
+            taskDiv.classList.add('taskItem-dark');
+        } else {
+            taskDiv.classList.add('taskItem-light');
+        }
+    taskDiv.innerText = tasks[doneTask];
         tasksList.appendChild(taskDiv);
     
     });
@@ -155,6 +147,5 @@ function viewOnlyDone(){
 
     btnViewAllTasks.style.visibility = 'visible';
     btnVieDoneTasks.style.visibility = 'hidden';
-
     
 }
