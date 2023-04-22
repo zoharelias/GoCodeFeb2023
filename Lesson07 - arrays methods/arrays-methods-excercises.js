@@ -186,20 +186,22 @@ console.log('excercise 9:');
 //     }
 // }
 function sortUpOrDown(upOrDown,numbersArray){
+     const arrayToReturn = numbersArray.slice();
     if(upOrDown === 'up'){
-        return numbersArray.sort(function(a, b){return a-b});
+        return arrayToReturn.sort(function(a, b){return a-b});
     } else if (upOrDown === 'down'){
-        return numbersArray.sort(function(a, b){return a-b}).reverse();
+        return arrayToReturn.sort(function(a, b){return a-b}).reverse();
     } else {
-        return 'UNSORTED ' + numbersArray;
+        return 'UNSORTED ' + arrayToReturn;
     }
 }
-let numArr = [2,1,77,5,6,9,99];
+const numArr = [2,1,77,5,6,99,9];
 console.log(sortUpOrDown('up',numArr));
-numArr = [2,1,77,5,6,9,99];
 console.log(sortUpOrDown('down',numArr));
-numArr = [2,1,5,3];
 console.log(sortUpOrDown('xx',numArr));
+
+
+
 
 
 //ex10
