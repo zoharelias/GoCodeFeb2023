@@ -1,176 +1,13 @@
 button,
 select {
-  height: 30px;
-}
-.taskItem {
-    padding: 3px;
-    margin: 2px;
-    display: flex;
-    gap: 5px;
+  height: 35px;
 }
 
-.taskItem-dark {
-    border: white 1px solid;
-    padding: 3px;
-    margin: 2px;
-    display: flex;
-    gap: 5px;
-}
-
-.taskItem-light {
-    border: black 1px solid;
-    padding: 3px;
-    margin: 2px;
-    display: flex;
-    gap: 5px;
-}
-
-.taskSubItem {
-    margin-left: 2px;
-    vertical-align: middle;
-    display: inline-block;
-}
-
-.taskText {
-    padding-top: 5px;
-    width: 50%;
-    font-size: 20px;
-}
-
-
-
-
-/* CSS */
-.button-21 {
-  align-items: center;
-  appearance: none;
-  background-color: #3EB2FD;
-  background-image: linear-gradient(1deg, #4F58FD, #149BF3 99%);
-  background-size: calc(100% + 20px) calc(100% + 20px);
-  border-radius: 100px;
-  border-width: 0;
-  box-shadow: none;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: CircularStd,sans-serif;
-  font-size: 1rem;
-  height: auto;
-  justify-content: center;
-  line-height: 1.5;
-  padding: 6px 20px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color .2s,background-position .2s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: top;
-  white-space: nowrap;
-}
-
-.button-21:active,
-.button-21:focus {
-  outline: none;
-}
-
-.button-21:hover {
-  background-position: -20px -20px;
-}
-
-.button-21:focus:not(:active) {
-  box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
-}
-
-
-
-
-
-
-.button-7 {
-  background-color: #0095ff;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.15385;
-  margin: 0;
-  outline: none;
-  padding: 8px .8em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-
-.button-7:hover,
-.button-7:focus {
-  background-color: #07c;
-}
-
-.button-7:focus {
-  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
-}
-
-.button-7:active {
-  background-color: #0064bd;
-  box-shadow: none;
-}
-
-
-
-.button-8 {
-  background-color: #e1ecf4;
-  border-radius: 3px;
-  border: 1px solid #7aa7c7;
-  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
-  box-sizing: border-box;
-  color: #39739d;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.15385;
-  margin: 0;
-  outline: none;
-  padding: 8px .8em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-
-.button-8:hover,
-.button-8:focus {
-  background-color: #b3d3ea;
-  color: #2c5777;
-}
-
-.button-8:focus {
-  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
-}
-
-.button-8:active {
-  background-color: #a0c7e4;
-  box-shadow: none;
-  color: #2c5777;
+.disabled-link{
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
 }
 
 
@@ -183,6 +20,7 @@ select {
   gap: 20px;
   border: solid 2px blue;
   background-color: #cee3f3;
+  width: 98%;
 }
 
 .ex1,
@@ -200,7 +38,6 @@ select {
 .excercise1Totos,
 .excercise2Users 
 .excercise3Cats {
-  /* background-color: #07c; */
   overflow: auto;
 }
 
