@@ -14,7 +14,7 @@ const ProductImage = ({src}) => {
 const ProductInfo = ({productName,price}) => {
   return(
     <div className="product-info">
-      <h5>{productName}}</h5>
+      <h5>{productName}</h5>
       <h6>${price}</h6>
     </div>
   )
@@ -24,7 +24,7 @@ const ProductCard = () => {
   return(
     <div className="product-card">
       <ProductImage src={'https://cdn.shopify.com/s/files/1/0938/8938/products/10231100205_1_1315x1800_300_CMYK_1024x1024.jpeg?v=1445623369'} />
-      <ProductInfo productName={'Winter Jacket'}  price={99} />
+      <ProductInfo productName={'Summer Jacket'}  price={99} />
     </div>
   )
 }
@@ -104,7 +104,7 @@ const Sort = () => {
 const ProductFilter = () =>{
   return(
     <nav className="sort">
-      <Headline />
+      <Headline productHeader={'Jackets'} />
       <Sort />
     </nav>
   )
