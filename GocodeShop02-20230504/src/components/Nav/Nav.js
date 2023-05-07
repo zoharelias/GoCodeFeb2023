@@ -3,14 +3,44 @@ import { DropDowns } from '../DropDowns/DropDown';
 import { sortArrOptions, filterArrOptions } from '../../local-data/data';
 import { useState,useEffect } from 'react';
 
-export const Nav = (productsA) => {
+export const Nav = ({productsA,updateProducts}) => {
   const [products,setProducts] = useState(productsA);
+  const [categories,setCategories] = useState([]);
+  const filterByCategory = (selectedCategory) =>{ 
+    
+    console.log('function filterByCategory, Selectes category= ', selectedCategory);
+    console.log('function filterByCategory, productA= ', productsA);
+    console.log('function filterByCategory, products= ', products);
+    let myArr =[];
+    myArr = productsA.filter((prod)=>{
+      return prod.category === selectedCategory;
+    });
+    console.log('myArr=',myArr);
+    updateProducts(myArr);
+  }
   useEffect(() => {
     console.log('useEffect of Nav.js');
-    console.log('productsA came -' , productsA['productsA']);
-    console.log('products came -' ,products);
-    console.log('*******');
-  },[]) 
+    // console.log('productsA came -' , productsA);
+    // console.log('products came -' ,products);
+    // console.log('*******');
+    setCategories(productsA.map(p => p.category).filter((value, index, array) => array.indexOf(value)===index));
+    console.log('categories:',categories);
+},[]);
+
+useEffect(() => {
+  console.log('useEffect Products change');
+  // console.log('productsA came -' , productsA);
+  // console.log('products came -' ,products);
+  // console.log('*******');
+  //setCategories(productsA.map(p => p.category).filter((value, index, array) => array.indexOf(value)===index));
+ // console.log('categories:',categories);
+},[productsA]);
+
+
+
+
+
+
 
 
   return (
@@ -19,11 +49,10 @@ export const Nav = (productsA) => {
       <div className="sort">
         <DropDowns 
           caption={'Filter'} 
-          optionsArray={filterArrOptions}
+          optionsArray={categories}
           onChange={(event) => {
             console.log(event.target.value);
-            const categories = productsA['productsA'].map(p => p.category).filter((value, index, array) => array.indexOf(value)===index);
-            console.log('categories:',categories);
+            filterByCategory(event.target.value);
           }}  
         />
         <DropDowns 

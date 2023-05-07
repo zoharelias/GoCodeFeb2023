@@ -1,6 +1,6 @@
 import './Product.css'
 
-export const Product = ({ src, title, price, isVeteran }) => {
+export const Product = ({ src, title, price, category }) => {
     return (
       <div className="product-card">
         <div className="product-image">
@@ -8,7 +8,8 @@ export const Product = ({ src, title, price, isVeteran }) => {
           <img src={src} title='product'/>
         </div>
         <div className="product-info">
-          <h5>{title}</h5>
+          <h4>{title}</h4>
+          <h5>{category}</h5>
           <h6>{price}</h6>
         </div>
       </div>

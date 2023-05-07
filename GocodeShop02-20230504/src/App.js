@@ -21,8 +21,8 @@ function App() {
 
   return (
     <div className="App">
-     <Nav productsA={productsA} />
-     <ProductsSection productsA={productsA}/>
+     <Nav productsA={productsA} updateProducts={setProductsA} />
+     <ProductsSection productsA={productsA} />
     </div>
   );
 }

@@ -15,7 +15,7 @@ export const ProductsSection = ({productsA}) => {
 
   return (
       <section className="products">
-        {productsA.map((product)=><Product src={product.image} title={product.title} price={product.price}/>)}
+        {productsA.map((product)=><Product src={product.image} title={product.title} price={product.price} category={product.category}/>)}
       </section>
     );
   };
