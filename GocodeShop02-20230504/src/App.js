@@ -9,13 +9,13 @@ function App() {
   const fetchProductsA = async () => {
     const response = await fetch('https://fakestoreapi.com/products')
     const data = await response.json()
-    //console.log(data);
     setProductsA(data)
   }
 
   useEffect(() => {
-    console.log('welcome to the world new compony')
-    fetchProductsA()
+    console.log('useEffect of App.js');
+    fetchProductsA();
+    console.log('App.js: after fetchProductsA() productsA = ',productsA);
   },[]) 
 
 

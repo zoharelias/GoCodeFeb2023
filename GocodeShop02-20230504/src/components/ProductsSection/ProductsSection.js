@@ -7,11 +7,6 @@ export const ProductsSection = ({productsA}) => {
   //useState
   const [products,setProducts] = useState(productsA);
 
-  useEffect(() => {
-    console.log('welcome to the world new compony');
-    //console.log(productsA);
-  },[]) 
-
 
   useEffect(() => {
     console.log('welcome to the world new compony')
