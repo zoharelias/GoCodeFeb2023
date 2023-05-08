@@ -9,8 +9,8 @@ export const ProductsSection = ({productsA}) => {
 
 
   useEffect(() => {
-    console.log('welcome to the world new compony')
-    console.log('products came -' ,productsA);
+    //console.log('welcome to the world new compony')
+    //console.log('products came -' ,productsA);
   },[]) 
 
   return (

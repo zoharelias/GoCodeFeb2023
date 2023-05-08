@@ -13,9 +13,9 @@ function App() {
   }
 
   useEffect(() => {
-    console.log('useEffect of App.js');
+    //console.log('useEffect of App.js');
     fetchProductsA();
-    console.log('App.js: after fetchProductsA() productsA = ',productsA);
+    //console.log('App.js: after fetchProductsA() productsA = ',productsA);
   },[]) 
 
 
