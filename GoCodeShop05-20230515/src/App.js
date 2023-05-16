@@ -22,7 +22,7 @@ function App() {
     fetchProductsA();
   },[]) 
 
-
+//
   return (
     <MyContext.Provider value={{shoppingCart,setShoppingCart}}>
       <div className="App">
