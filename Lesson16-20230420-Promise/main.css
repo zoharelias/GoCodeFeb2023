@@ -1,0 +1,52 @@
+button,
+select {
+  height: 35px;
+}
+
+.disabled-link{
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
+}
+
+
+.excercises {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  gap: 20px;
+  border: solid 2px blue;
+  background-color: #cee3f3;
+  width: 98%;
+}
+
+.ex1,
+.ex3 {
+  height: 200px;
+  overflow: auto;
+
+}
+.ex2, 
+.ex4 {
+  height: 150px;
+}
+
+
+.excercise1Totos,
+.excercise2Users 
+.excercise3Cats {
+  overflow: auto;
+}
+
+.excercise2Users {
+  display: flex;
+  gap: 15px;
+}
+
+.done {
+  text-decoration: line-through;
+}
+

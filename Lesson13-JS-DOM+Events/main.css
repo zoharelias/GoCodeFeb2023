@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    height: 1000px;
+}
+button {
+    background-color: rgb(229, 232, 239);
+    color: blue;
+    padding: 3px;
+    gap: 10px;
+}
+
+.container{
+    display: flex;
+}
+
+.divs {
+    border: solid 1px blue;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input3 {
+    width:650px;
+}
+
+.image {
+    width: 300px;
+    height: 300px;
+}
