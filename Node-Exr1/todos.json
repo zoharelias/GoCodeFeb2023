@@ -36,9 +36,21 @@
     "isCompleted": false
   },
   {
-    "id": 9,
+    "id": 10,
     "title": "important",
     "description": "go to the bank",
+    "isCompleted": true
+  },
+  {
+    "id": 11,
+    "title": "almog11",
+    "description": "something here11",
+    "isCompleted": false
+  },
+  {
+    "id": 12,
+    "title": "almog12",
+    "description": "something here12",
     "isCompleted": false
   }
 ]
