@@ -1,0 +1,6 @@
+To use the program, use node with arguments.
+ - help: show you this text
+ - template: add a template todo in a format of  "id": X,
+                                                 "title": "almogX",
+                                                 "descrtiption": "something hereX",
+                                                 "isCompleted": false
