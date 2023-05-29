@@ -99,6 +99,14 @@ app.delete('/todo/:id',(req,res)=>{
 
 
 
+//added routes
+app.get('/count',(req,res)=>{
+    const todosArr = readDataFile('./todos.json');
+    const counting = todosArr.length;
+    console.log(counting);
+    res.send(`the number of tasks is ${counting}`);
+});
+
 
 //LISTEN
 app.listen(3000, () => {
