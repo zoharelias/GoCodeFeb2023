@@ -13,7 +13,6 @@ export const Nav = ({productsA,updateProducts}) => {
     
     console.log('function filterByCategory, Selectes category= ', selectedCategory);
     console.log('function filterByCategory, productA= ', productsA);
-    console.log('function filterByCategory, products= ', products);
     let myArr =[];
     myArr = productsA.filter((prod)=>{
       return prod.category === selectedCategory;
@@ -27,7 +26,8 @@ export const Nav = ({productsA,updateProducts}) => {
     // console.log('products came -' ,products);
     // console.log('*******');
     setCategories(productsA.map(p => p.category).filter((value, index, array) => array.indexOf(value)===index));
-    console.log('categories:',categories);
+
+    console.log('|||categories:',categories);
 },[]);
 
 useEffect(() => {
@@ -38,8 +38,6 @@ useEffect(() => {
   setCategories(productsA.map(p => p.category).filter((value, index, array) => array.indexOf(value)===index));
  // console.log('categories:',categories);
 },[productsA]);
-
-
 
 
   return (
