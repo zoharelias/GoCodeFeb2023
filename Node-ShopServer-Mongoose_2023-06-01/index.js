@@ -229,7 +229,6 @@ async function main() {
     //await mongoose.connect("mongodb://127.0.0.1:27017/gocode-shop");
    
     //MongoDB Atlas
-    //await mongoose.connect("mongodb+srv://gocode:gocode123@shopdb.4ssxoie.mongodb.net/shop");
     await mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`);
 
 
