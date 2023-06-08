@@ -1,6 +1,12 @@
 import mongoose from 'mongoose';
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
+ 
+const { PORT, DB_USER, DB_PASS, DB_HOST, DB_NAME } = process.env
+
 
 const app = express();
 app.use(express.json());
@@ -32,6 +38,7 @@ const productSchema = new mongoose.Schema({
     rating: {
         rate: {
             type: Number,
+            default: 0,
         },
         count: {
             type: Number,
@@ -77,7 +84,7 @@ app.get("/todo/:id", async (req, res) => {
   
   });
 
-  app.get("/product/:id", async (req, res) => {
+app.get("/product/:id", async (req, res) => {
     const id = req.params.id;
     const product = await Product.findOne({ _id: id });
     console.log(product);
@@ -85,23 +92,19 @@ app.get("/todo/:id", async (req, res) => {
   
   });
 
+  //GET products by category
+app.get("/product/:category",async(req,res,)=>{
+    const category = req.params.category;
+    const products = await Product.find({category});
+    if(products.length ===0){
+        res.status(404).send('no producs found');
+    }
+    res.status(202).send(products);
+
+});
+
+
 //POST
-// app.post('/', async (req,res)=>{
-//     try {
-//         const obj = { ...req.body };
-//         console.log(obj);
-//         if(Object.keys(obj).length === 0){
-//             res.send('failed');
-//             return;
-//         }
-//         const todo = new Todo(obj);
-//         await todo.save();
-//         res.send(todo);
-//     } catch (error) {
-//         console.log(error);
-//         res.status(500).send({message:error})
-//     }
-// });
 
 app.post('/', async (req,res)=>{
     try {
@@ -197,8 +200,9 @@ app.delete("/product/:id/", async (req, res) => {
   //Add bulk from JSON
   app.post('/json/', async (req,res)=>{
     try {
-        const objArray = req.body;
+        const objArray = [...req.body];
         console.log(objArray.length);
+        //it is better to use insertMany()
         objArray.forEach(async (obj)=>{
             //console.log(obj['title']);
             const product = new Product(obj);
@@ -221,7 +225,14 @@ app.delete("/product/:id/", async (req, res) => {
 
 //Connect to DB
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/gocode-shop");
+    //MongoDB Compass -local
+    //await mongoose.connect("mongodb://127.0.0.1:27017/gocode-shop");
+   
+    //MongoDB Atlas
+    //await mongoose.connect("mongodb+srv://gocode:gocode123@shopdb.4ssxoie.mongodb.net/shop");
+    await mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`);
+
+
   }
   
   main().catch((err) => console.log(err));
@@ -229,7 +240,7 @@ async function main() {
 
 
 //LISTEN
-app.listen(8000, () => {
+app.listen(PORT, () => {
     console.log("app listening on port 8000");
   });
   
